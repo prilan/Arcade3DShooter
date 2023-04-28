@@ -5,17 +5,36 @@ namespace Arcade3DShooter
 {
     public class EnemyController : MonoBehaviour
     {
+        public bool isAlive = true;
 
-        // Use this for initialization
-        void Start()
+        public bool IsAlive => isAlive;
+
+        private void Start()
         {
 
         }
 
-        // Update is called once per frame
-        void Update()
+        private void Update()
         {
 
+        }
+
+        public void DamageByTapped()
+        {
+            Debug.Log("EnemyController.DamageByTapped: ");
+
+            SetActive(false);
+        }
+
+        public void RestartEnemy()
+        {
+            SetActive(true);
+        }
+
+        private void SetActive(bool isActive)
+        {
+            gameObject.SetActive(isActive);
+            isAlive = isActive;
         }
     }
 }

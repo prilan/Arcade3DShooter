@@ -8,7 +8,8 @@ namespace Arcade3DShooter
         RunState,
         MoveToShelterState, // Переход от бега к укрытию
         ShelterState,
-        MoveToRunState      // Переход от укрытия к бегу
+        MoveToRunState,     // Переход от укрытия к бегу
+        WinState,
     }
 
     public class LogicState
@@ -28,6 +29,8 @@ namespace Arcade3DShooter
         public void ChangeState(LogicStateEnum logicStateValue)
         {
             currentLogicState = logicStateValue;
+
+            Debug.Log("LogicState.ChangeState: currentLogicState = " + currentLogicState);
         }
     }
 }

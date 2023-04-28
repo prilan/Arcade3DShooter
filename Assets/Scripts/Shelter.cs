@@ -1,18 +1,32 @@
+using Arcade3DShooter;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class Shelter : MonoBehaviour
+namespace Arcade3DShooter
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Shelter : MonoBehaviour
     {
-        
-    }
+        [SerializeField] List<EnemyController> enemies;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public bool IsEnemiesClean => !enemies.Any(enemy => enemy.IsAlive);
+
+        private void Start()
+        {
+
+        }
+
+        private void Update()
+        {
+
+        }
+
+        public void RestartAllEnemies()
+        {
+            foreach (EnemyController enemy in enemies) {
+                enemy.RestartEnemy();
+            }
+        }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Utility;
 
-namespace Assets.Scripts
+namespace Arcade3DShooter
 {
     public class ShelterManager : MonoSingleton<ShelterManager>
     {
@@ -11,5 +11,12 @@ namespace Assets.Scripts
 
         public List<Shelter> Shelters { get { return shelterList; } }
         
+
+        public void RestartAllShelters()
+        {
+            foreach (Shelter shelter in Shelters) {
+                shelter.RestartAllEnemies();
+            }
+        }
     }
 }
